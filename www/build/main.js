@@ -162,7 +162,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/ricardo.morais/ricardo.morais/Projetos/IonicProjeto/AppIonic/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>Inicio</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Bem vindo ao AppIonic</h2>\n    <p>\n        This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.\n    </p>\n    <p>\n        Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.\n    </p>\n</ion-content>'/*ion-inline-end:"/Users/ricardo.morais/ricardo.morais/Projetos/IonicProjeto/AppIonic/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/ricardo.morais/ricardo.morais/Projetos/IonicProjeto/AppIonic/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>Inicio</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <h2>Bem vindo ao AppIonic</h2>\n    <p>\n        Pagina inicial do aplicativo.\n    </p>\n    <p>\n        Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.\n    </p>\n</ion-content>'/*ion-inline-end:"/Users/ricardo.morais/ricardo.morais/Projetos/IonicProjeto/AppIonic/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
 ], HomePage);
