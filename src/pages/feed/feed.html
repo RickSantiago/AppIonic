@@ -1,18 +1,81 @@
-<!--
-  Generated template for the FeedPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Feed</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Feed</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-card>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="./../../assets/img/pp.jpeg">
+            </ion-avatar>
+            <h2>{{nomeUsuario}}</h2>
+            <p>{{dataAtual | date: 'dd/MM/yyyy'}}</p>
+            <!--<p>November 5, 1955</p>-->
+        </ion-item>
 
+        <img class="tamanhoImagem" src="./../../assets/img/Logo-ES-Fundo-branco.png">
+
+        <ion-card-content>
+            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente podem precisar
+                das considerações ou orientações de um DevOps</p>
+        </ion-card-content>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>123 Curtidas</div>
+      </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>14 Comentários</div>
+      </button>
+            </ion-col>
+            <ion-col center text-center>
+                <ion-note>
+                    {{dataAtual | date: 'HH:mm dd/MMMM'}}
+                </ion-note>
+            </ion-col>
+        </ion-row>
+
+    </ion-card>
+
+    <ion-card>
+
+        <img src="./../../assets/img/advance-card-map-madison.png">
+        <ion-fab right top>
+            <button ion-fab>
+      <ion-icon name="pin"></ion-icon>
+    </button>
+        </ion-fab>
+
+        <ion-item>
+            <ion-icon name="football" item-start large></ion-icon>
+            <h2>Museum of Football</h2>
+            <p>11 N. Way St, Madison, WI 53703</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="wine" item-left large></ion-icon>
+            <h2>Institute of Fine Cocktails</h2>
+            <p>14 S. Hop Avenue, Madison, WI 53703</p>
+        </ion-item>
+
+        <ion-item>
+            <span item-left>18 min</span>
+            <span item-left>(2.6 mi)</span>
+            <button ion-button icon-left clear item-end>
+      <ion-icon name="navigate"></ion-icon>
+      Start
+    </button>
+        </ion-item>
+
+    </ion-card>
 </ion-content>

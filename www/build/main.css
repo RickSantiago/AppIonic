@@ -25198,3 +25198,9 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-feed .tamanhoImagem {
+  width: 50%;
+  height: 50%;
+  padding-right: 50%;
+}
