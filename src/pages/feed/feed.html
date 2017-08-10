@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-    <ion-card>
+    <ion-card (tap)="tapEvent($event)">
         <ion-item>
             <ion-avatar item-start>
                 <img src="./../../assets/img/pp.jpeg">
@@ -21,61 +21,63 @@
         <img class="tamanhoImagem" src="./../../assets/img/Logo-ES-Fundo-branco.png">
 
         <ion-card-content>
-            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente podem precisar
-                das considerações ou orientações de um DevOps</p>
+            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações
+                a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente
+                podem precisar das considerações ou orientações de um DevOps</p>
         </ion-card-content>
 
         <ion-row>
             <ion-col>
                 <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>123 Curtidas</div>
-      </button>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>{{curtidas}} Curtidas</div>
+                 </button>
             </ion-col>
             <ion-col>
-                <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>14 Comentários</div>
-      </button>
+                <button color="dark" ion-button icon-left clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>110 Comentários</div>
+                 </button>
             </ion-col>
             <ion-col center text-center>
                 <ion-note>
-                    {{dataAtual | date: 'HH:mm dd/MMMM'}}
+                              {{dataAtual | date: 'dd/MMMM/yyyy HH:mm'}}          
                 </ion-note>
             </ion-col>
         </ion-row>
-
+      <ion-item center class="marginDiv">
+            <button color="light" center ion-button round small (click)="abrirMenu()">
+                 Mais
+            </button>
+    </ion-item>
     </ion-card>
-
+ 
     <ion-card>
-
         <img src="./../../assets/img/advance-card-map-madison.png">
-        <ion-fab right top>
-            <button ion-fab>
-      <ion-icon name="pin"></ion-icon>
-    </button>
-        </ion-fab>
+        <!-- <ion-fab right top>
+             <button ion-fab> 
+       <ion-icon name="pin"></ion-icon> 
+     </button> 
+        </ion-fab> -->
 
         <ion-item>
-            <ion-icon name="football" item-start large></ion-icon>
-            <h2>Museum of Football</h2>
-            <p>11 N. Way St, Madison, WI 53703</p>
-        </ion-item>
-
-        <ion-item>
-            <ion-icon name="wine" item-left large></ion-icon>
-            <h2>Institute of Fine Cocktails</h2>
+            <ion-icon name="md-flag" item-left large></ion-icon>
+            <h2>MeetUp DevOps</h2>
             <p>14 S. Hop Avenue, Madison, WI 53703</p>
         </ion-item>
 
         <ion-item>
             <span item-left>18 min</span>
             <span item-left>(2.6 mi)</span>
-            <button ion-button icon-left clear item-end>
-      <ion-icon name="navigate"></ion-icon>
-      Start
-    </button>
+            <button ion-button icon-left clear item-end ng-href="https://goo.gl/maps/USqyFgB8g5k">
+                 <ion-icon name="navigate" ></ion-icon>
+                 Ir até o local
+             </button>
         </ion-item>
-
+        <ion-item center class="marginDiv">
+            <button center color="light" ion-button round small (click)="abrirMenu()">
+                 Mais
+            </button>
+    </ion-item>
     </ion-card>
 </ion-content>

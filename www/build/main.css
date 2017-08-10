@@ -25204,3 +25204,9 @@ page-feed .tamanhoImagem {
   height: 50%;
   padding-right: 50%;
 }
+
+page-feed .marginDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 50%;
+}
