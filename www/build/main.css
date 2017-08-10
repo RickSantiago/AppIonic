@@ -25210,3 +25210,7 @@ page-feed .marginDiv {
   margin-bottom: 10px;
   padding-right: 50%;
 }
+
+page-intro .slide_image img {
+  width: 250px;
+}

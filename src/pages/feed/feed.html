@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-    <ion-card (tap)="tapEvent($event)">
+    <ion-card>
         <ion-item>
             <ion-avatar item-start>
                 <img src="./../../assets/img/pp.jpeg">
@@ -21,16 +21,15 @@
         <img class="tamanhoImagem" src="./../../assets/img/Logo-ES-Fundo-branco.png">
 
         <ion-card-content>
-            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações
-                a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente
-                podem precisar das considerações ou orientações de um DevOps</p>
+            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente podem precisar
+                das considerações ou orientações de um DevOps</p>
         </ion-card-content>
 
         <ion-row>
             <ion-col>
                 <button ion-button icon-left clear small>
                     <ion-icon name="thumbs-up"></ion-icon>
-                    <div>{{curtidas}} Curtidas</div>
+                    <div (tap)="tapEvent($event)">{{curtidas}} Curtidas</div>
                  </button>
             </ion-col>
             <ion-col>
@@ -41,17 +40,17 @@
             </ion-col>
             <ion-col center text-center>
                 <ion-note>
-                              {{dataAtual | date: 'dd/MMMM/yyyy HH:mm'}}          
+                    {{dataAtual | date: 'dd/MMMM/yyyy HH:mm'}}
                 </ion-note>
             </ion-col>
         </ion-row>
-      <ion-item center class="marginDiv">
+        <ion-item center class="marginDiv">
             <button color="light" center ion-button round small (click)="abrirMenu()">
                  Mais
             </button>
-    </ion-item>
+        </ion-item>
     </ion-card>
- 
+
     <ion-card>
         <img src="./../../assets/img/advance-card-map-madison.png">
         <!-- <ion-fab right top>
@@ -78,6 +77,6 @@
             <button center color="light" ion-button round small (click)="abrirMenu()">
                  Mais
             </button>
-    </ion-item>
+        </ion-item>
     </ion-card>
 </ion-content>
