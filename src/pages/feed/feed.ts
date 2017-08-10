@@ -8,9 +8,18 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 })
 export class FeedPage {
 
-  public nomeUsuario:string = "Ricardo Santiago Morais";
-  public dataAtual:any = new Date();
-  public curtidas:number = 0;
+  // public nomeUsuario:string = "Ricardo Santiago Morais";
+  // public dataAtual:any = new Date();
+  // public curtidas:number = 0;
+
+  public objeto_feed= {
+    titulo: "Ricardo Santiago Morais",
+    data_feed: new Date(),
+    descricao: "DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente podem precisar das considerações ou orientações de um DevOps",
+    qtd_curtidas: 0,
+    qtd_comentarios: 0,
+    data_comentario: new Date()
+  }
 
   constructor(
     public navCtrl: NavController,
@@ -31,7 +40,7 @@ export class FeedPage {
   }*/
 
   tapEvent(e) {
-    this.curtidas++
+    this.objeto_feed.qtd_curtidas++
   }
   
    abrirMenu() {
@@ -75,8 +84,7 @@ export class FeedPage {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad FeedPage');
-    //this.somaValor(1, 99);
+     //realizar chamadas ao carregar a pagina caso necessario
   }
 
 }
