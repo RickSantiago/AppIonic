@@ -1,6 +1,8 @@
 import { TabsPage } from '../tabs/tabs';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { FeedPage } from '../feed/feed';
 
 /**
  * Generated class for the IntroPage page.
@@ -25,6 +27,12 @@ export class IntroPage {
 
 irParaTabsPage(){
     this.navCtrl.push(TabsPage);
+}
+irParaHomePage(){
+    this.navCtrl.push(HomePage);
+}
+irParaFeedPage(){
+    this.navCtrl.push(FeedPage);
 }
 
 }

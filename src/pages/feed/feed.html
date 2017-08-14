@@ -27,8 +27,8 @@
 
         <ion-row>
             <ion-col>
-                <button ion-button icon-left clear small>
-                    <ion-icon name="thumbs-up"></ion-icon>
+                <button ion-button icon-left clear small color="secondary">
+                    <ion-icon name="md-checkmark-circle"></ion-icon>
                     <!--<div (tap)="tapEvent($event)">{{objeto_feed.qtd_curtidas}} Curtidas</div>-->
                     <div>{{filme.vote_count}} Votos</div>
                  </button>
@@ -39,11 +39,11 @@
                     <div>{{objeto_feed.qtd_comentarios}} Comentários</div>
                  </button>
             </ion-col>
-            <ion-col center text-center>
+            <!--<ion-col center text-center>
                 <ion-note>
                     Votos: {{filme.vote_count}}
                 </ion-note>
-            </ion-col>
+            </ion-col>-->
         </ion-row>
         <ion-item center class="marginDiv">
             <button color="light" center ion-button round small (click)="abrirMenu()">

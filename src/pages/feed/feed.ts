@@ -60,17 +60,9 @@ export class FeedPage {
         },
          {
           text: 'Editar',
-          icon: !this.platform.is('ios') ? 'heart-outline' : null,
+          icon: !this.platform.is('ios') ? 'md-create' : null,
           handler: () => {
             console.log('Editar clicado');
-          }
-        },
-        {
-          text: 'Cancelar',
-          role: 'cancel', // will always sort to be on the bottom
-          icon: !this.platform.is('ios') ? 'close' : null,
-          handler: () => {
-            console.log('Cancelar clicado');
           }
         }
       ]
