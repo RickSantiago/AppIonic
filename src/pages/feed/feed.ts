@@ -1,3 +1,4 @@
+import { DadosApiProvider } from './../../providers/dados-api/dados-api';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
@@ -5,6 +6,9 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 @Component({
   selector: 'page-feed',
   templateUrl: 'feed.html',
+  providers: [
+    DadosApiProvider
+  ]
 })
 export class FeedPage {
 
@@ -22,7 +26,8 @@ export class FeedPage {
      public navParams: NavParams, 
      public actionSheetCtrl: ActionSheetController,
      public platform: Platform,
-    ){ }
+     private dadosApiProvider: DadosApiProvider
+    ){}
 
   tapEvent(e) {
     this.objeto_feed.qtd_curtidas++
@@ -70,6 +75,16 @@ export class FeedPage {
 
   ionViewDidLoad() {
      //realizar chamadas ao carregar a pagina caso necessario
+     this.dadosApiProvider.getUltimosFilmes().subscribe(
+       data => {
+         const response = (data as any);
+         const objeto_retorno = JSON.parse(response._body);
+         console.log(objeto_retorno);
+       },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
 }

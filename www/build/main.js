@@ -158,8 +158,9 @@ HomePage = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_dados_api_dados_api__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,12 +173,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var FeedPage = (function () {
-    function FeedPage(navCtrl, navParams, actionSheetCtrl, platform) {
+    function FeedPage(navCtrl, navParams, actionSheetCtrl, platform, dadosApiProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.actionSheetCtrl = actionSheetCtrl;
         this.platform = platform;
+        this.dadosApiProvider = dadosApiProvider;
         this.objeto_feed = {
             titulo: "Ricardo Santiago Morais",
             data_feed: new Date(),
@@ -230,19 +233,27 @@ var FeedPage = (function () {
     };
     FeedPage.prototype.ionViewDidLoad = function () {
         //realizar chamadas ao carregar a pagina caso necessario
+        this.dadosApiProvider.getUltimosFilmes().subscribe(function (data) {
+            var response = data;
+            var objeto_retorno = JSON.parse(response._body);
+            console.log(objeto_retorno);
+        }, function (error) {
+            console.log(error);
+        });
     };
     return FeedPage;
 }());
 FeedPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
         selector: 'page-feed',template:/*ion-inline-start:"C:\Users\Kallayo\Documents\Projetos\AppIonic\src\pages\feed\feed.html"*/'<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>Feed</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-card>\n\n        <ion-item>\n\n            <ion-avatar item-start>\n\n                <img src="assets/img/pp.jpeg">\n\n            </ion-avatar>\n\n            <h2>{{objeto_feed.titulo}}</h2>\n\n            <p>{{objeto_feed.data_feed | date: \'dd/MM/yyyy\'}}</p>\n\n            <!--<p>November 5, 1955</p>-->\n\n        </ion-item>\n\n\n\n        <img class="tamanhoImagem" src="assets/img/Logo-ES-Fundo-branco.png">\n\n\n\n        <ion-card-content>\n\n            <p>{{objeto_feed.descricao}}</p>\n\n        </ion-card-content>\n\n\n\n        <ion-row>\n\n            <ion-col>\n\n                <button ion-button icon-left clear small>\n\n                    <ion-icon name="thumbs-up"></ion-icon>\n\n                    <div (tap)="tapEvent($event)">{{objeto_feed.qtd_curtidas}} Curtidas</div>\n\n                 </button>\n\n            </ion-col>\n\n            <ion-col>\n\n                <button color="dark" ion-button icon-left clear small>\n\n                    <ion-icon name="text"></ion-icon>\n\n                    <div>{{objeto_feed.qtd_comentarios}} Comentários</div>\n\n                 </button>\n\n            </ion-col>\n\n            <ion-col center text-center>\n\n                <ion-note>\n\n                    {{objeto_feed.data_feed | date: \'dd/MMMM/yyyy HH:mm\'}}\n\n                </ion-note>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-item center class="marginDiv">\n\n            <button color="light" center ion-button round small (click)="abrirMenu()">\n\n                 Mais\n\n            </button>\n\n        </ion-item>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <img src="assets/img/advance-card-map-madison.png">\n\n        <!-- <ion-fab right top>\n\n             <button ion-fab> \n\n       <ion-icon name="pin"></ion-icon> \n\n     </button> \n\n        </ion-fab> -->\n\n\n\n        <ion-item>\n\n            <ion-icon name="md-flag" item-left large></ion-icon>\n\n            <h2>MeetUp DevOps</h2>\n\n            <p>14 S. Hop Avenue, Madison, WI 53703</p>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n            <span item-left>18 min</span>\n\n            <span item-left>(2.6 mi)</span>\n\n            <button ion-button icon-left clear item-end >\n\n                 <ion-icon name="navigate" ></ion-icon>\n\n                 <a href="https://goo.gl/maps/USqyFgB8g5k" target="blank">Ir até o local</a>\n\n             </button>\n\n        </ion-item>\n\n        <ion-item center class="marginDiv">\n\n            <button center color="light" ion-button round small (click)="abrirMenu()">\n\n                 Mais\n\n            </button>\n\n        </ion-item>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Kallayo\Documents\Projetos\AppIonic\src\pages\feed\feed.html"*/,
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_0__providers_dados_api_dados_api__["a" /* DadosApiProvider */]
+        ]
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* ActionSheetController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__providers_dados_api_dados_api__["a" /* DadosApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_dados_api_dados_api__["a" /* DadosApiProvider */]) === "function" && _e || Object])
 ], FeedPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=feed.js.map
 
 /***/ }),
@@ -277,6 +288,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_feed_feed__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_dados_api_dados_api__ = __webpack_require__(267);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,6 +302,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 /*import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';*/
+
 
 
 
@@ -314,7 +327,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */])
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
@@ -330,7 +343,8 @@ AppModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
-            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
+            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+            __WEBPACK_IMPORTED_MODULE_11__providers_dados_api_dados_api__["a" /* DadosApiProvider */]
         ]
     })
 ], AppModule);
@@ -382,6 +396,57 @@ MyApp = __decorate([
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 267:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DadosApiProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the DadosApiProvider provider.
+
+  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+  for more info on providers and Angular DI.
+*/
+var DadosApiProvider = (function () {
+    function DadosApiProvider(http) {
+        this.http = http;
+        this.urlBaseApiPath = "https://api.themoviedb.org/3";
+        //console.log('Ola DadosApiProvider Provider');
+    }
+    DadosApiProvider.prototype.getUltimosFilmes = function () {
+        return this.http.get(this.urlBaseApiPath + "/movie/latest?api_key=" + this.getApiKey());
+    };
+    DadosApiProvider.prototype.getApiKey = function () {
+        return "72cad64f5c3a7c61e861423d4c33e8bb";
+    };
+    return DadosApiProvider;
+}());
+DadosApiProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+], DadosApiProvider);
+
+var _a;
+//# sourceMappingURL=dados-api.js.map
 
 /***/ })
 
