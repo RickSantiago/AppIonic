@@ -14,11 +14,11 @@ export class DadosApiProvider {
   private urlBaseApiPath = "https://api.themoviedb.org/3"
   
   constructor(public http: Http) {
-    //console.log('Ola DadosApiProvider Provider');
+    console.log('Acessado DadosApiProvider Provider');
   }
 
   getUltimosFilmes(){
-    return this.http.get(this.urlBaseApiPath + "/movie/latest?api_key=" + this.getApiKey());
+    return this.http.get(this.urlBaseApiPath + "/movie/popular?api_key=" + this.getApiKey());
   }
 
   getApiKey(): string{

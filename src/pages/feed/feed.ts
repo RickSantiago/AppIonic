@@ -10,6 +10,7 @@ import { Platform, ActionSheetController } from 'ionic-angular';
     DadosApiProvider
   ]
 })
+
 export class FeedPage {
 
   public objeto_feed= {
@@ -19,14 +20,18 @@ export class FeedPage {
     qtd_curtidas: 0,
     qtd_comentarios: 21,
     data_comentario: new Date()
-  }
+ }
+
+  public listaFilmes = new Array<any>();
 
   constructor(
-    public navCtrl: NavController,
+
+     public navCtrl: NavController,
      public navParams: NavParams, 
      public actionSheetCtrl: ActionSheetController,
      public platform: Platform,
      private dadosApiProvider: DadosApiProvider
+     
     ){}
 
   tapEvent(e) {
@@ -76,15 +81,19 @@ export class FeedPage {
   ionViewDidLoad() {
      //realizar chamadas ao carregar a pagina caso necessario
      this.dadosApiProvider.getUltimosFilmes().subscribe(
+
        data => {
-         const response = (data as any);
-         const objeto_retorno = JSON.parse(response._body);
-         console.log(objeto_retorno);
+
+            const response = (data as any);
+            const objeto_retorno = JSON.parse(response._body);
+
+            this.listaFilmes = objeto_retorno.results;
+            
+            console.log(objeto_retorno);
        },
         error => {
-          console.log(error);
-        }
-      );
+            console.log(error);
+        });
   }
 
 }
