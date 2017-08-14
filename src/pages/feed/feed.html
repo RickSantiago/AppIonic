@@ -11,36 +11,35 @@
     <ion-card>
         <ion-item>
             <ion-avatar item-start>
-                <img src="./../../assets/img/pp.jpeg">
+                <img src="assets/img/pp.jpeg">
             </ion-avatar>
-            <h2>{{nomeUsuario}}</h2>
+            <h2>{{objeto_feed.titulo}}</h2>
             <p>{{objeto_feed.data_feed | date: 'dd/MM/yyyy'}}</p>
             <!--<p>November 5, 1955</p>-->
         </ion-item>
 
-        <img class="tamanhoImagem" src="./../../assets/img/Logo-ES-Fundo-branco.png">
+        <img class="tamanhoImagem" src="assets/img/Logo-ES-Fundo-branco.png">
 
         <ion-card-content>
-            <p>DevOps é a reação à interdependência entre desenvolvimento de software e operações de TI. Pretende ajudar organizações a produzir software e serviços rapidamente. Empresas que liberam novas versões de software frequentemente podem precisar
-                das considerações ou orientações de um DevOps</p>
+            <p>{{objeto_feed.descricao}}</p>
         </ion-card-content>
 
         <ion-row>
             <ion-col>
                 <button ion-button icon-left clear small>
                     <ion-icon name="thumbs-up"></ion-icon>
-                    <div (tap)="tapEvent($event)">{{curtidas}} Curtidas</div>
+                    <div (tap)="tapEvent($event)">{{objeto_feed.qtd_curtidas}} Curtidas</div>
                  </button>
             </ion-col>
             <ion-col>
                 <button color="dark" ion-button icon-left clear small>
                     <ion-icon name="text"></ion-icon>
-                    <div>110 Comentários</div>
+                    <div>{{objeto_feed.qtd_comentarios}} Comentários</div>
                  </button>
             </ion-col>
             <ion-col center text-center>
                 <ion-note>
-                    {{dataAtual | date: 'dd/MMMM/yyyy HH:mm'}}
+                    {{objeto_feed.data_feed | date: 'dd/MMMM/yyyy HH:mm'}}
                 </ion-note>
             </ion-col>
         </ion-row>
@@ -52,7 +51,7 @@
     </ion-card>
 
     <ion-card>
-        <img src="./../../assets/img/advance-card-map-madison.png">
+        <img src="assets/img/advance-card-map-madison.png">
         <!-- <ion-fab right top>
              <button ion-fab> 
        <ion-icon name="pin"></ion-icon> 
@@ -68,9 +67,9 @@
         <ion-item>
             <span item-left>18 min</span>
             <span item-left>(2.6 mi)</span>
-            <button ion-button icon-left clear item-end ng-href="https://goo.gl/maps/USqyFgB8g5k">
+            <button ion-button icon-left clear item-end >
                  <ion-icon name="navigate" ></ion-icon>
-                 Ir até o local
+                 <a href="https://goo.gl/maps/USqyFgB8g5k" target="blank">Ir até o local</a>
              </button>
         </ion-item>
         <ion-item center class="marginDiv">

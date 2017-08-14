@@ -25211,6 +25211,12 @@ page-feed .marginDiv {
   padding-right: 50%;
 }
 
+page-home .tamanhoImg img {
+  width: 50%;
+  height: 50%;
+  padding-right: 50%;
+}
+
 page-intro .slide_image img {
   width: 250px;
 }
