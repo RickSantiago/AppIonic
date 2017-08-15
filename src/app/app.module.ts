@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DadosApiProvider } from '../providers/dados-api/dados-api';
 
+
 @NgModule({
   declarations: [
     MyApp,

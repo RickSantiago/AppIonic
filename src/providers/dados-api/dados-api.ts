@@ -18,7 +18,7 @@ export class DadosApiProvider {
   }
 
   getUltimosFilmes(){
-    return this.http.get(this.urlBaseApiPath + "/movie/popular?api_key=" + this.getApiKey());
+    return this.http.get(this.urlBaseApiPath + "/movie/popular?api_key=" + this.getApiKey() + "&language=pt-BR");
   }
 
   getApiKey(): string{
